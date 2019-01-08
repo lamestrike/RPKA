@@ -19,7 +19,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
 		_flipCharRight()
 		$mainchr/mainchar/characterplayer.play("utok1")
-		
+	
 	if Input.is_action_just_pressed("ui_left"):
 		_flipCharLeft()
 		$mainchr/mainchar/characterplayer.play("utok1")

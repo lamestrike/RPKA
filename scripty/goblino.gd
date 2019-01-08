@@ -1,15 +1,18 @@
 extends KinematicBody2D
 
-var pohyb = Vector2()
+var velocity = Vector2()
+onready var g = preload("res://sprites/utok_skrettt.png")
 
 func _physics_process(delta):
-	pohyb.x = 100
+	velocity.x = 100
 	
-	move_and_slide(pohyb)
+	var collision_info = move_and_collide(velocity * delta)
 	
-	if KinematicBody2D.collider.name == "mainchr":
-		$gob/skretani.play("armthing")
-	pass
-
-
-
+	
+	if collision_info:
+		$gob/skretani.play("skuska")
+		#collision_info.collider.queue_free()
+	
+	
+	#if collision == true:
+	#	$gob/skretani.play("utok")
