@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
-onready var g = preload("res://sprites/utok_skrettt.png")
+
 
 func _physics_process(delta):
 	velocity.x = 100
@@ -9,10 +9,13 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	
 	
-	if collision_info:
-		$gob/skretani.play("skuska")
+	#if collision_info:
+		#$gob/skretani.play("utok")
 		#collision_info.collider.queue_free()
-	
 	
 	#if collision == true:
 	#	$gob/skretani.play("utok")
+func _on_Area2D_body_exited(body):
+	$gob/skretani.play("utok")
+#func _on_Area2D_body_entered(body):
+#	$gob/skretani.play("utok")
